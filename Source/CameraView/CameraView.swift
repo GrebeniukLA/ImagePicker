@@ -9,7 +9,7 @@ protocol CameraViewDelegate: class {
   func cameraNotAvailable()
 }
 
-class CameraView: UIViewController, CLLocationManagerDelegate, CameraManDelegate {
+class CameraView: UIViewController, CameraManDelegate {
 
   var configuration = ImagePickerConfiguration()
 
@@ -227,7 +227,7 @@ class CameraView: UIViewController, CLLocationManagerDelegate, CameraManDelegate
         })
     })
 
-    cameraMan.takePhoto(previewLayer, location: locationManager?.latestLocation) {
+    cameraMan.takePhoto(previewLayer, location: nil) {
       completion()
       self.delegate?.imageToLibrary()
     }
